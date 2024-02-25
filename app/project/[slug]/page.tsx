@@ -2,7 +2,7 @@ import React from "react";
 import { format } from "date-fns";
 import { marked } from "marked";
 
-export const revalidate = 10000;
+export const runtime = "edge";
 
 export const metadata = {
   title: "Project",
