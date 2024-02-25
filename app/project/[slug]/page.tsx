@@ -5,6 +5,8 @@ import { db } from "@/app/firebaseConfig";
 import { query, where, getDocs, collection } from "firebase/firestore";
 import { marked } from "marked";
 
+export const revalidate = 10000;
+
 type project = {
   slug: string;
   img: string;
@@ -13,8 +15,6 @@ type project = {
   tag: string[];
   content: string;
 };
-
-export const runtime = "edge";
 
 async function getProject(slug: string) {
   const q = query(collection(db, "project"), where("slug", "==", slug));

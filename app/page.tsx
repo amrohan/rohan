@@ -7,7 +7,7 @@ export default async function Home() {
     <>
       <div className="md:flex md:flex-none md:justify-between md:items-center h-[35rem] gap-2 mt-20">
         <img
-          src="https://amrohan.com/assets/hero.svg"
+          src="hero.svg"
           alt="hero image"
           className="size-96 w-full mb-2 md:mb-0"
         />

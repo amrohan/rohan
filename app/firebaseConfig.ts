@@ -10,10 +10,10 @@ const firebaseConfig = {
   appId: process.env.FIREBASE_APP_ID,
 };
 
-// check if the app is already initialized
-if (!getApps().length) {
-  initializeApp(firebaseConfig);
-}
+// // check if the app is already initialized
+// if (!getApps().length) {
+//   initializeApp(firebaseConfig);
+// }
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
