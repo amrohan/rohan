@@ -2,6 +2,10 @@ import ProjectCard from "@/components/ProjectCard";
 import ProjectCardSkeleton from "@/components/skeleton/projectCardSkeleton";
 import React, { Suspense } from "react";
 
+export const metadata = {
+  title: "Project",
+  description: "A list of projects I have worked on.",
+};
 export default async function page() {
   return (
     <section>

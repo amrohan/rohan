@@ -1,13 +1,16 @@
 import React from "react";
 import { format } from "date-fns";
-import { db } from "@/app/firebaseConfig";
-
-import { query, where, getDocs, collection } from "firebase/firestore";
 import { marked } from "marked";
 
 export const revalidate = 10000;
 
+export const metadata = {
+  title: "Project",
+  description: "A list of projects I have worked on.",
+};
+
 type project = {
+  id: number;
   slug: string;
   img: string;
   title: string;
@@ -16,23 +19,30 @@ type project = {
   content: string;
 };
 
+{
+}
 async function getProject(slug: string) {
-  const q = query(collection(db, "project"), where("slug", "==", slug));
-  const querySnapshot = await getDocs(q);
-  const project = querySnapshot.docs.map((doc) => doc.data())[0] as project;
-  return project;
+  const project = await fetch(
+    `https://script.google.com/macros/s/AKfycbzmQ-LIv9fNtAXMk_iifc9k1y72zgHMi8dDLv3uoQGhCV3bhdB5OTsewisvlnL6jPz_rQ/exec`,
+    {
+      next: {
+        revalidate: 10000,
+      },
+    }
+  );
+  const data = await project.json();
+  return data.find((project: project) => project.slug === slug);
 }
 
 export default async function page({ params }: { params: { slug: string } }) {
-  const data = await getProject(params.slug);
+  const data: project = await getProject(params.slug);
+
   return (
     <div className="h-full gap-2 mt-16">
       <div className="mb-6 w-full">
-        <img src={data.img} className="rounded-md w-full" />
+        <img src={data.img} className="rounded-md w-full md:h-96 h-40" />
         <h1 className="text-3xl mt-6">{data.title} </h1>
-        <span className="text-xs">
-          {format(data.date.seconds * 1000, "dd MMM yyyy")}
-        </span>
+        <span className="text-xs">{format(data.date, "dd MMM yyyy")}</span>
       </div>
       <div
         dangerouslySetInnerHTML={{ __html: marked(data.content) }}

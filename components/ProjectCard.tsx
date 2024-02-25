@@ -1,11 +1,10 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { collection, getDocs } from "firebase/firestore";
 import { format } from "date-fns";
-import { db } from "@/app/firebaseConfig";
 import Link from "next/link";
 
 type project = {
+  id: number;
   slug: string;
   img: string;
   title: string;
@@ -15,9 +14,16 @@ type project = {
 };
 
 async function fetchProject() {
-  const querySnapshot = await getDocs(collection(db, "project"));
-  const project = querySnapshot.docs.map((doc) => doc.data());
-  const data = project as project[];
+  const project = await fetch(
+    `https://script.google.com/macros/s/AKfycbzmQ-LIv9fNtAXMk_iifc9k1y72zgHMi8dDLv3uoQGhCV3bhdB5OTsewisvlnL6jPz_rQ/exec`,
+    {
+      next: {
+        revalidate: 10000,
+      },
+    }
+  );
+  const data = (await project.json()) as project[];
+
   return data;
 }
 
@@ -25,8 +31,8 @@ export default async function ProjectCard() {
   const data = await fetchProject();
   return (
     <div className="mt-4 grid md:grid-cols-2 gap-6 items-start animate-in fade-in">
-      {data.map((project: project, index: number) => (
-        <Link href={`/project/${project.slug}`} key={index}>
+      {data.map((project: project) => (
+        <Link href={`/project/${project.slug}`} key={project.id}>
           <div className="min-h-72 h-fit rounded-md w-ful mt-1">
             <div className="h-52 rounded-md object-cover w-full relative  overflow-hidden">
               <img
@@ -54,9 +60,7 @@ dark:from-purple-800 dark:to-purple-900 font-semibold "
                 {project.title}
               </p>
 
-              <p className="text-xs">
-                {format(new Date(project.date.seconds * 1000), "dd MMM yyyy")}
-              </p>
+              <p className="text-xs">{format(project.date, "dd MMM yyyy")}</p>
             </div>
           </div>
         </Link>

@@ -4,7 +4,7 @@ import { ModeToggle } from "./ModeToggle";
 
 export default function Navbar() {
   return (
-    <div className="w-full dark:text-slate-50 p-4 h-16 rounded-b-md fixed top-0 z-40 bg-clip-padding backdrop-filter backdrop-blur-lg  bg-opacity-90">
+    <div className="w-full dark:text-slate-50 p-[1rem] h-16 rounded-b-md fixed top-0 z-40 bg-clip-padding backdrop-filter backdrop-blur-lg  bg-opacity-90">
       <nav className="max-w-4xl flex justify-between w-full items-center mx-auto">
         <div className="flex justify-start items-center gap-3 h-8">
           <Link href="/">Home</Link>

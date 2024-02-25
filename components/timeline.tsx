@@ -3,7 +3,12 @@ import { format } from "date-fns";
 
 async function getData() {
   const res = await fetch(
-    "https://script.googleusercontent.com/macros/echo?user_content_key=TrTiy8UVRDTpF8dFf2obFk78x1R1ZEyHzkHEUluoT1DGiOBKWpJgIO-X09UFI5SmUtP0ickSYFSb-kYidiRYil5xa6ZCC3E_m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNiewqCxX0lATezlMmlGfBTFID018lC9XaIN4FO89keQHQ25q0Dvw1qIkbZpuhWL-hXHd-9fjx_hEePl1ANAAMxGPpe1g-Ihztz9Jw9Md8uu&lib=M2Z4E6dkDNS2cflLcyLdmfREM-8-p-jCS"
+    "https://script.googleusercontent.com/macros/echo?user_content_key=TrTiy8UVRDTpF8dFf2obFk78x1R1ZEyHzkHEUluoT1DGiOBKWpJgIO-X09UFI5SmUtP0ickSYFSb-kYidiRYil5xa6ZCC3E_m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnNiewqCxX0lATezlMmlGfBTFID018lC9XaIN4FO89keQHQ25q0Dvw1qIkbZpuhWL-hXHd-9fjx_hEePl1ANAAMxGPpe1g-Ihztz9Jw9Md8uu&lib=M2Z4E6dkDNS2cflLcyLdmfREM-8-p-jCS",
+    {
+      next: {
+        revalidate: 10000,
+      },
+    }
   );
 
   if (!res.ok) {
