@@ -14,6 +14,8 @@ type project = {
   content: string;
 };
 
+export const runtime = "edge";
+
 async function getProject(slug: string) {
   const q = query(collection(db, "project"), where("slug", "==", slug));
   const querySnapshot = await getDocs(q);
