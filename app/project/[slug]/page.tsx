@@ -40,7 +40,11 @@ export default async function page({ params }: { params: { slug: string } }) {
   return (
     <div className="h-full gap-2 mt-16">
       <div className="mb-6 w-full">
-        <img src={data.img} className="rounded-md w-full md:h-96 h-40" />
+        <img
+          src={data.img}
+          className="rounded-md w-full md:h-96 h-40"
+          alt={data.title}
+        />
         <h1 className="text-3xl mt-6">{data.title} </h1>
         <span className="text-xs">{format(data.date, "dd MMM yyyy")}</span>
       </div>
