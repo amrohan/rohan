@@ -2,7 +2,7 @@ import React from "react";
 
 export default function loading() {
   return (
-    <div className="h-full gap-2 mt-16">
+    <div className="h-full gap-2 mt-16 animate-pulse">
       <div className="mb-6 w-full">
         <div className=" dark:bg-zinc-600 bg-gray-300 md:h-96 h-40 w-full rounded-md"></div>
         <h1 className="text-3xl mt-6 h-6 w-10/12 dark:bg-zinc-600 bg-gray-300 rounded-md">
