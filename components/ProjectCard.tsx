@@ -29,12 +29,15 @@ async function fetchProject() {
 
 export default async function ProjectCard() {
   const data = await fetchProject();
+  // sort data by date
+  data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
   return (
     <div className="mt-4 grid md:grid-cols-2 gap-6 items-start animate-in fade-in">
       {data.map((project: project) => (
         <Link href={`/project/${project.slug}`} key={project.id}>
-          <div className="min-h-72 h-fit rounded-md w-ful mt-1">
-            <div className="h-52 rounded-md object-cover w-full relative  overflow-hidden">
+          <div className="min-h-72 h-fit rounded-md w-full mt-1">
+            <div className="h-56 rounded-md object-cover w-full relative  overflow-hidden">
               <img
                 src={project.img}
                 alt="{project.title}"
