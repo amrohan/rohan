@@ -13,11 +13,6 @@ export default {
           "2xl": "6rem",
         },
       },
-      fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        serif: ["Merriweather", "serif"],
-        mono: ["Roboto Mono", "monospace"],
-      },
       colors: {
         text: "#dff1f1",
         background: "#071111",
