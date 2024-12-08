@@ -19,7 +19,7 @@ const routes = [
       routes.map((route) => (
         <a
           href={route.url}
-          class={` ${
+          class={`hover:text-text ${
             Astro.url.pathname === route.url ? "text-text" : "text-text/80"
           }`}
           aria-label={route.name}
