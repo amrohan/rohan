@@ -1,31 +1,23 @@
 ---
 import Navbar from "../components/Navbar.astro";
-
-const {
-  title = "Rohan Salunkhe",
-  description = "Welcome to the personal website of Rohan Salunkhe, a passionate Full-Stack Developer. Explore my projects, development expertise, and innovative solutions built using modern technologies.",
-} = Astro.props;
+import BaseHead from "./BaseHead.astro";
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <title>{title}</title>
-  </head>
+  <BaseHead {...Astro.props} />
   <body class="bg-background">
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
 
 <style>
   html,
   body {
+    box-sizing: border-box;
     margin: 0;
     width: 100%;
     height: 100%;
