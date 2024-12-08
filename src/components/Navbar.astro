@@ -6,9 +6,11 @@ const routes = [
   },
   {
     name: "Projects",
-    url: "/projects/",
+    url: "/projects",
   },
 ];
+
+console.log("router", Astro.url.pathname);
 ---
 
 <nav
@@ -20,7 +22,9 @@ const routes = [
         <a
           href={route.url}
           class={`hover:text-text ${
-            Astro.url.pathname === route.url ? "text-text" : "text-text/80"
+            Astro.url.pathname.trim() === route.url
+              ? "text-text"
+              : "text-text/80"
           }`}
           aria-label={route.name}
         >
