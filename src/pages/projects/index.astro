@@ -1,0 +1,21 @@
+---
+import Card from "../../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+
+const projectData = await getCollection("projects");
+// console.log("🚀 ~ projectData:", projectData);
+---
+
+<Layout
+  title="Project"
+  description="Project information regarding the created project by rohan salunkhe"
+>
+  <section class="container max-w-5xl mx-auto p-4">
+    <h2 class="text-lg font-bold text-text/80 mt-6">Projects</h2>
+    <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-3">
+      {projectData.map((project: any) => <Card {...project.data} />)}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,62 @@
+---
+import { render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+// grab slug from the URL
+
+export const getStaticPaths = async () => {
+  const projects = await getCollection("projects");
+  return projects.map((pro) => {
+    const dataItem = projects.find((project) => project.id === pro.id);
+    return {
+      params: {
+        slug: dataItem?.id,
+      },
+      props: {
+        frontMatter: dataItem?.data,
+        content: dataItem!,
+      },
+    };
+  });
+};
+
+const { frontMatter, content } = Astro.props;
+
+if (!frontMatter || !content) {
+  return {
+    notFound: true,
+  };
+}
+
+const date = new Date(frontMatter.date);
+
+const formattedDate = date.toLocaleDateString("en-GB", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+});
+
+const { Content } = await render(content);
+---
+
+<Layout title={frontMatter.title}>
+  <section class="container max-w-5xl mx-auto p-4">
+    <Image
+      src={frontMatter.image}
+      alt={frontMatter.title}
+      width={500}
+      height={300}
+      class="w-full h-52 md:h-96 object-cover rounded-lg"
+    />
+    <p class="text-primary text-sm my-4">{formattedDate}</p>
+
+    <div
+      class="prose prose-sm lg:prose-lg prose-invert max-w-5xl prose-img:w-60
+       prose-headings:text-text prose-p:text-text/90 prose-a:text-accent prose-strong:text-primary"
+    >
+      <Content />
+    </div>
+  </section>
+</Layout>

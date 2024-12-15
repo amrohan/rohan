@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+
+const { title, description, image, date, tags, slug } = Astro.props;
+---
+
+<div class="flex flex-col bg-[#0F1818] shadow-sm rounded-xl w-full">
+  <Image
+    class="object-center rounded-t-xl h-52"
+    src={image}
+    alt="Card Image"
+    width={400}
+    height={100}
+  />
+  <div class="p-4 flex flex-col gap-10 h-52 w-full">
+    <div class="w-full min-h-24">
+      <h3 class="text-lg font-bold text-text">{title}</h3>
+      <div class="flex flex-wrap gap-2 mt-4">
+        {
+          tags.map((tag: string) => (
+            <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-md">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+    <div class="flex justify-end items-center gap-2 min-w-full">
+      <!-- <a
+        class="text-primary bg-primary/30 cursor-pointer rounded-md text-sm px-4 py-1.5 flex justify-center items-center gap-1"
+      >
+        Demo
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4"
+          ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          ></path></svg
+        >
+      </a> -->
+      <a
+        href={`/projects/${slug}`}
+        class="text-black border cursor-pointer border-primary bg-primary font-thin rounded-md text-sm px-4 py-1.5 flex justify-center items-center gap-1"
+      >
+        Read more
+      </a>
+    </div>
+  </div>
+</div>
