@@ -8,8 +8,6 @@ tags: [Next.js, Prisma, MongoDB, Web Scraping, Telegram Bot]
 image: https://res.cloudinary.com/amrohan/image/upload/v1706540386/Images/upps7yxtsrguwchutzub.png
 ---
 
-## Project Overview
-
 **Devnews** is a dynamic hub for tech enthusiasts, providing a centralized source for the latest news in the technology world. With a focus on personalized content delivery, Devnews integrates a **Telegram bot interface**, allowing users to receive curated news directly in their Telegram chats. The platform collects and aggregates news using web scraping techniques from a variety of reputable tech websites, ensuring a comprehensive and up-to-date news feed.
 
 The project is designed for tech-savvy individuals who want to stay on top of the latest trends, all while enjoying an easy-to-use, bot-driven interface.

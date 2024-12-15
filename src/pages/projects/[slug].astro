@@ -51,17 +51,15 @@ const { Content } = await render(content);
       height={300}
       class="w-full h-52 md:h-96 object-cover rounded-lg"
     />
-    <p class="text-primary text-sm mt-6">{formattedDate}</p>
-    <h1
-      class="text-[1.42em] md:text-3xl font-bold text-text leading-[1.4] mt-[1.6em] mb-[0.8em]"
-      transition:name={frontMatter.title}
-    >
-      {frontMatter.title}
-    </h1>
+    <p class="text-primary text-sm my-6">{formattedDate}</p>
+
     <div
       class="prose prose-sm lg:prose-lg prose-invert max-w-5xl prose-img:w-60
        prose-headings:text-text prose-p:text-text/90 prose-a:text-primary"
     >
+      <h2 transition:name={frontMatter.title}>
+        {frontMatter.title}
+      </h2>
       <Content />
     </div>
   </section>

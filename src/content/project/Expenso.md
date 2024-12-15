@@ -9,8 +9,6 @@ author: Amrohan
 image: https://res.cloudinary.com/amrohan/image/upload/v1707924017/Images/taxnrclslrog4ol1vyef.jpg
 ---
 
-## Project Overview
-
 **Expenso** is a revolutionary budget tracking application designed to streamline personal finance management. Whether you're trying to save, track expenses, or manage multiple accounts, Expenso provides a seamless, intuitive interface to help you achieve your financial goals. With a comprehensive set of features ranging from transaction tracking to profile customization, Expenso ensures users have complete control over their financial health.
 
 The app is divided into several core modules:
