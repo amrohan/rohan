@@ -1,15 +1,13 @@
 ---
-title: Timeline
+title: TimeLine A Simple Memory Timeline App
 description: A simple timeline of your memories.
 slug: timeline
-date: 2022-10-10
+date: 2024-10-20
 tags: [Angular, Firebase, Firestore, Storage, Authentication, Cloudflare Pages]
 layout: project
 author: Amrohan
 image: https://res.cloudinary.com/amrohan/image/upload/w_800,h_600,c_limit/xmyinhmej4ttgeajptvg.png
 ---
-
-## TimeLine: A Simple Memory Timeline App
 
 Welcome to **TimeLine**, a delightful web application where you can document your personal memories in a visually appealing timeline. Whether it's milestones, special moments, or just fun events, TimeLine helps you capture, organize, and relive these moments. With easy-to-use features and a clean design, this project brings together **images**, **titles**, **descriptions**, and **dates** in a beautifully arranged chronological order.
 

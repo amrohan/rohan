@@ -1,8 +1,8 @@
 ---
-title: Expenso
+title: Expenso - Budget Tracking Application
 description: A revolutionary budget tracking application designed to streamline personal finance management.
 slug: expenso
-date: 2024-25-02
+date: 2023-10-12
 tags: [Angular, GoLang, MongoDB]
 layout: project
 author: Amrohan

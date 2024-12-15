@@ -25,12 +25,12 @@ const { id, title, position, description, date } = Astro.props;
     <!-- Right Content -->
     <div class="grow pt-0.5 pb-8">
       <div class="flex flex-col justify-start items-start gap-2">
-        <h1 class="text-text font-semibold">
+        <h1 class="text-text font-semibold text-lg md:text-2xl">
           {title}
         </h1>
-        <p class="text-primary text-xs">{position}</p>
+        <p class="text-primary text-xs md:text-sm">{position}</p>
       </div>
-      <p class="text-sm text-text/90 mt-4 leading-6">
+      <p class="text-sm md:text-base text-text/90 mt-4 leading-6">
         {description}
       </p>
     </div>

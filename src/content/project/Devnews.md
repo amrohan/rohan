@@ -1,9 +1,9 @@
 ---
-title: Devnews
+title: Devnews - Your Source for Tech News
 description: A dynamic hub for tech enthusiasts, providing a centralized source for the latest tech news. Leveraging a Telegram bot interface, it offers personalized news delivery directly to users' chats.
 author: Amrohan
 slug: devnews
-date: 2022-12-01
+date: 2022-11-22
 tags: [Next.js, Prisma, MongoDB, Web Scraping, Telegram Bot]
 image: https://res.cloudinary.com/amrohan/image/upload/v1706540386/Images/upps7yxtsrguwchutzub.png
 ---
