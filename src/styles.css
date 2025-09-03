@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --text: #0f1729;
+    --background: #f1f5f9;
+    --primary: #10b77f;
+    --secondary: #36d399;
+    --accent: #1d283a;
+  }
+  .dark {
+    --text: #d6def0;
+    --background: #060a0e;
+    --primary: #48efb7;
+    --secondary: #2cc98f;
+    --accent: #c5d0e2;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.4s ease, color 0.4s ease;
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+@layer utilities {
+  .bg-background {
+    background-color: var(--background);
+  }
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  .bg-subtle {
+    background-color: color-mix(in srgb, var(--secondary) 20%, transparent);
+  }
+
+  /* Text utilities */
+  .text-text {
+    color: var(--text);
+  }
+  .text-primary {
+    color: var(--primary);
+  }
+  .text-secondary {
+    color: var(--secondary);
+  }
+  .text-accent {
+    color: var(--accent);
+  }
+
+  /* Border utilities */
+  .border-primary {
+    border-color: var(--primary);
+  }
+  .border-secondary {
+    border-color: var(--secondary);
+  }
+  .border-accent {
+    border-color: var(--accent);
+  }
+}
