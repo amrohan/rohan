@@ -1,4 +1,7 @@
 [phases.setup]
+packages = ["nodejs-20_x"]
+
+[phases.setup]
 packages = ["nodejs", "npm"]
 
 [phases.install]
