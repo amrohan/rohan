@@ -1,14 +1,12 @@
 [phases.setup]
-packages = ["nodejs-20_x"]
-
-[phases.setup]
-packages = ["nodejs", "npm"]
+# Use Node 22
+packages = ["nodejs-22_x"]
 
 [phases.install]
 commands = ["npm install"]
 
 [phases.build]
-commands = ["npm run build"]
+commands = ["npm run build:ssr:rohan"]
 
 [phases.start]
 commands = ["npm run serve:ssr:rohan"]
