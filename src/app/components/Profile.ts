@@ -20,7 +20,11 @@ import { Component } from '@angular/core';
       >
         <div class="bg-accent/10 rounded-xl sm:rounded-2xl p-8 sm:p-12 lg:p-16 text-center">
           <div class="relative mx-auto">
-            <img src="/me.webp" alt="Profile Picture" class="rounded-full mx-auto object-cover" />
+            <img
+              src="/me.webp"
+              alt="Profile Picture"
+              class="rounded-full mx-auto object-cover size-96"
+            />
           </div>
         </div>
       </div>
