@@ -1,15 +1,15 @@
 [phases.setup]
-# Use Node 22
+# Node 22 to satisfy Angular 20 requirements
 packages = ["nodejs-22_x"]
 
 [phases.install]
 commands = ["npm install"]
 
 [phases.build]
-commands = ["npm run build:ssr:rohan"]
+commands = ["ng build rohan && ng run rohan:server"]
 
 [phases.start]
-commands = ["npm run serve:ssr:rohan"]
+commands = ["node dist/rohan/server/server.mjs"]
 
 [environment]
 PORT = "4000"
