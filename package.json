@@ -10,7 +10,7 @@
     "serve:ssr:rohan": "node dist/rohan/server/server.mjs"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": "22.12.0"
   },
   "prettier": {
     "printWidth": 100,
