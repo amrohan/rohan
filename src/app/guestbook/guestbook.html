@@ -1,0 +1,240 @@
+<div class="min-h-screen bg-background font-sans text-text flex flex-col">
+  <div class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="grid-pattern opacity-30"></div>
+    <div
+      class="absolute top-10 left-10 h-20 w-20 animate-float rounded-full bg-primary opacity-20"
+    ></div>
+    <div
+      class="absolute top-32 right-20 h-16 w-16 animate-float-delayed rounded-full bg-secondary opacity-15"
+    ></div>
+  </div>
+
+  <!-- Header  -->
+  <div
+    class="sticky top-0 z-20 border-b border-neutral-300 bg-background/95 backdrop-blur-sm dark:border-neutral-700"
+  >
+    <div class="animate-fade-in-up px-4 py-4 text-center sm:px-6 lg:px-8">
+      <h1 class="text-2xl font-bold sm:text-3xl">Guest <span class="text-primary">Book</span></h1>
+      <p class="mt-1 text-sm text-accent">
+        {{ messages().length }} {{ messages().length === 1 ? 'message' : 'messages' }}
+      </p>
+    </div>
+  </div>
+
+  <!-- Chat Messages  -->
+  <div class="flex-1 overflow-hidden">
+    <div class="relative z-10 mx-auto h-full max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div
+        class="flex h-full flex-col-reverse overflow-y-auto pb-4 pt-6 scrollbar-thin scrollbar-track-transparent"
+        id="messagesContainer"
+      >
+        <!-- Messages List -->
+        <div class="space-y-4">
+          <!-- No Messages State -->
+          @if (messages().length === 0 && !isLoading()) {
+          <div class="flex h-64 items-center justify-center">
+            <div class="text-center">
+              <div
+                class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent/20"
+              >
+                <span class="material-icons text-2xl text-accent">rate_review</span>
+              </div>
+              <p class="mb-2 text-lg font-medium text-accent">Be the first to leave a message</p>
+              <p class="text-sm text-accent/70">Share your thoughts in the guestbook below</p>
+            </div>
+          </div>
+
+          }
+
+          <!-- Messages Loop -->
+          @for (message of messages(); track message.id) {
+          <div class="flex items-end gap-3 animate-fade-in-up">
+            <!-- Avatar -->
+            <div
+              class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br dark:from-green-300 from-green-900 to-primary/70 text-xs font-semibold text-white shadow-sm"
+            >
+              {{ getInitials(message.sender) }}
+            </div>
+
+            <!-- Message Bubble -->
+            <div class="group max-w-[70%] sm:max-w-[60%]">
+              <!-- Sender Name & Time -->
+              <div class="mb-1 flex items-center gap-2 px-1">
+                <span class="text-xs font-medium text-primary">{{ message.sender }}</span>
+                <span class="text-xs text-text/50">{{ formatDate(message.date) }}</span>
+              </div>
+
+              <!-- Message Content -->
+              <div
+                class="rounded-2xl rounded-bl-md border border-neutral-200 bg-white/80 px-4 py-3 shadow-sm transition-all duration-200 dark:border-neutral-700 dark:bg-neutral-800/50"
+              >
+                <p class="whitespace-pre-wrap break-words text-sm leading-relaxed text-text">
+                  {{ message.message }}
+                </p>
+              </div>
+            </div>
+          </div>
+          }
+
+          <!-- Load More Button -->
+          @if (hasMore() && !isLoading() && messages().length > 0) {
+          <div class="py-4 text-center">
+            <button
+              (click)="loadMore()"
+              class="cursor-pointer inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-background px-4 py-2 text-sm font-medium text-text transition-all duration-200 hover:bg-neutral-50 dark:border-neutral-700 dark:hover:bg-neutral-800/50"
+            >
+              <span class="material-icons text-lg">expand_less</span>
+              Load Earlier Messages
+            </button>
+          </div>
+          }
+
+          <!-- Loading Indicator -->
+          @if (isLoading()) {
+          <div class="flex justify-center py-6">
+            <div class="flex items-center gap-2 text-sm text-accent">
+              <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24">
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                  fill="none"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              <span>Loading messages...</span>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed Bottom Input Area -->
+  <div
+    class="sticky bottom-0 z-20 border-t border-neutral-300 bg-background/95 backdrop-blur-sm dark:border-neutral-700"
+  >
+    <div class="mx-auto max-w-4xl px-4 py-4 sm:px-6 lg:px-8">
+      <form (ngSubmit)="submitMessage()" class="space-y-3">
+        <!-- Sender Name Input -->
+        <div class="space-y-1">
+          <div class="relative w-52">
+            <input
+              id="sender"
+              type="text"
+              [(ngModel)]="sender"
+              name="sender"
+              maxlength="50"
+              required
+              (input)="onInputChange()"
+              [class]="
+                'w-auto rounded-lg border px-3 py-2 text-sm placeholder-gray-500 transition-all duration-300 focus:outline-none focus:ring-1 ' +
+                (hasSenderError()
+                  ? 'border-red-300 bg-red-50 focus:border-red-500 focus:ring-red-500'
+                  : 'border-neutral-300 bg-white/50 focus:border-primary focus:ring-primary') +
+                ' dark:border-neutral-600 dark:bg-neutral-800/50'
+              "
+              placeholder="Your name"
+            />
+            <!-- <div class="absolute right-3 top-2 text-xs text-text/40">
+              {{ senderCharCount() }}/50
+            </div> -->
+          </div>
+          @if (hasSenderError()) {
+          <p class="text-xs text-red-600">{{ getSenderValidationMessage() }}</p>
+          }
+        </div>
+
+        <!-- Message Input -->
+        <div class="space-y-1">
+          <div class="flex items-center gap-3">
+            <div class="flex-1 relative">
+              <textarea
+                id="message"
+                [(ngModel)]="message"
+                name="message"
+                maxlength="2000"
+                required
+                rows="1"
+                (input)="autoResize($event)"
+                (keydown)="onKeyDown($event)"
+                [class]="
+                  'max-h-32 w-full resize-none rounded-2xl border px-4 py-3 pr-16 placeholder-gray-500 transition-all duration-300 focus:outline-none focus:ring-1 ' +
+                  (hasMessageError()
+                    ? 'border-red-300 bg-red-50 focus:border-red-500 focus:ring-red-500'
+                    : 'border-neutral-300 bg-white/50 focus:border-primary focus:ring-primary') +
+                  ' dark:border-neutral-600 dark:bg-neutral-800/50'
+                "
+                placeholder="Type your message..."
+                style="field-sizing: content"
+              ></textarea>
+
+              <!-- Character Count -->
+              <div
+                [class]="
+                  'absolute bottom-3 right-3 text-xs ' +
+                  (messageCharCount() > 1900 ? 'text-red-500' : 'text-neutral-400 ')
+                "
+              >
+                {{ messageCharCount() }}/2000
+              </div>
+            </div>
+
+            <!-- Send Button -->
+            <button
+              type="submit"
+              [disabled]="isSubmitDisabled()"
+              [class]="
+                'size-14 grid place-content-center  flex-shrink-0 items-center justify-center rounded-full text-white shadow-lg transition-all duration-300 active:scale-95 ' +
+                (isSubmitDisabled()
+                  ? 'cursor-not-allowed bg-gray-400 opacity-50'
+                  : 'bg-primary hover:bg-primary hover:shadow-primary/40 cursor-pointer')
+              "
+            >
+              @if (isLoading()) {
+              <svg class="h-5 w-5 animate-spin" viewBox="0 0 24 24">
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                  fill="none"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              } @else {
+              <span class="material-icons">send</span>
+              }
+            </button>
+          </div>
+
+          @if (hasMessageError()) {
+          <p class="text-xs text-red-600">{{ getMessageValidationMessage() }}</p>
+          }
+        </div>
+
+        <!-- Form Status Indicator -->
+        <!-- @if (!isFormValid() && (senderSignal() || messageSignal())) {
+        <div class="flex items-center gap-2 text-xs text-amber-600">
+          <span class="material-icons text-sm">info</span>
+          <span>Please fill in all required fields correctly</span>
+        </div>
+        } -->
+      </form>
+    </div>
+  </div>
+</div>

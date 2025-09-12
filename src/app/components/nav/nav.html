@@ -44,6 +44,15 @@
             class="absolute inset-x-0 -bottom-1 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
           ></div>
         </a>
+        <a routerLink="/guestbook" routerLinkActive="text-primary" class="nav-link group relative">
+          <span
+            class="relative z-10 text-text/80 group-hover:text-primary transition-colors duration-300"
+            >Guesbook</span
+          >
+          <div
+            class="absolute inset-x-0 -bottom-1 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+          ></div>
+        </a>
         <a routerLink="/contact" routerLinkActive="text-primary" class="nav-link group relative">
           <span
             class="relative z-10 text-text/80 group-hover:text-primary transition-colors duration-300"
@@ -98,6 +107,13 @@
           routerLinkActive="text-primary"
           class="text-2xl font-bold text-text/80 hover:text-primary transition-colors duration-300"
           >Work</a
+        >
+        <a
+          (click)="toggleMenu()"
+          routerLink="/guestbook"
+          routerLinkActive="text-primary"
+          class="text-2xl font-bold text-text/80 hover:text-primary transition-colors duration-300"
+          >Guestbook</a
         >
         <a
           (click)="toggleMenu()"

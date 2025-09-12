@@ -12,8 +12,8 @@ import { ProjectCard } from './project-card';
 export class Project {
   projectData: ProjectModel[] = [
     {
-      imageUrl: 'termix.webp',
-      title: 'Termix File Navigator',
+      imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/termix.webp',
+      title: 'Termix',
       description:
         'A modern, high-performance file manager for the terminal. Built with .NET and Spectre.Console for a fluid, visually-rich experience.',
       githubUrl: 'https://github.com/amrohan/termix',
@@ -23,7 +23,7 @@ export class Project {
       tags: ['.NET', 'C#', 'CLI', 'Spectre.Console', 'Developer Tool'],
     },
     {
-      imageUrl: 'memora.webp',
+      imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/memora.webp',
       title: 'Memora',
       description:
         'A sleek, user-friendly bookmark manager designed to help you organize, categorize, and quickly access your favorite links. Built with Angular and featuring PWA support, Web Share API integration, and responsive design.',
@@ -34,8 +34,9 @@ export class Project {
       tags: ['Angular', 'Nodejs', 'PWA', 'Sqlite', 'Web Share API'],
     },
     {
-      imageUrl: 'echomail.webp',
-      title: 'EchoMail',
+      imageUrl:
+        'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/echomail.webp',
+      title: 'Echomail',
       description:
         'Lightning-fast email relay API that just works - JWT auth, contact forms, and Gmail SMTP in one tiny package. Built with .NET 9 Minimal API for portfolios, landing pages, and internal tools.',
       githubUrl: 'https://github.com/amrohan/echomail',

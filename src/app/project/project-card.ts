@@ -4,35 +4,38 @@ import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-project-card',
+  standalone: true,
   imports: [NgClass],
   template: `
     <div
-      class="w-full max-w-sm overflow-hidden rounded-xl border border-accent/20 bg-background shadow-lg"
+      class="group grid w-full grid-cols-1 overflow-hidden rounded-xl border border-accent/20 bg-background shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl md:grid-cols-5"
     >
       <!-- Project Image -->
-      <div class="relative">
+      <div class="relative col-span-1 md:col-span-2 h-60 w-full">
         <img
           [src]="project().imageUrl"
           [alt]="project().title + ' Screenshot'"
-          class="w-full h-52 "
-          [ngClass]="project().state ? project().state : 'object-cover'"
+          class="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+          [ngClass]="project().state ? project().state : 'object-fill'"
         />
-        <div class="absolute inset-0 bg-black/20"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent md:from-transparent"
+        ></div>
       </div>
 
       <!-- Card Content -->
-      <div class="p-6">
-        <!-- Card Header: Title and GitHub Stars -->
+      <div class="col-span-1 flex flex-col justify-center p-6 md:col-span-3">
+        <!-- Card Header: Title and GitHub Link -->
         <div class="flex items-start justify-between gap-4">
-          <h3 class="text-xl font-bold text-text">{{ project().title }}</h3>
+          <h3 class="text-2xl font-bold text-text">{{ project().title }}</h3>
 
-          <!-- Conditionally render the GitHub link -->
           @if (project().githubUrl) {
           <a
             [href]="project().githubUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex-shrink-0 border flex items-center gap-1.5 rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent transition-colors hover:bg-accent hover:text-text"
+            class="flex-shrink-0 text-sm flex text-yellow-900 border rounded-lg px-4 py-2 dark:text-yellow-200  justify-center gap-1  transition-colors hover:text-primary"
+            aria-label="GitHub Repository"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,41 +47,40 @@ import { NgClass } from '@angular/common';
               stroke-width="2"
               stroke-linecap="round"
               stroke-linejoin="round"
-              class="size-4"
+              class="size-5"
             >
               <path
                 d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
               />
               <path d="M9 18c-4.51 2-5-2-7-2" />
             </svg>
-
-            <!-- Only show stars if they are provided -->
-            @if (project().githubStars) {
-            <span>{{ project().githubStars }}</span>
+            @if(project().githubStars ){
+            {{ project().githubStars }}
             }
           </a>
           }
         </div>
 
-        <p class="mt-2 text-text/80 text-sm line-clamp-3">
+        <p class="mt-2 text-sm text-text/70 line-clamp-3">
           {{ project().description }}
         </p>
 
-        <!-- Technology Tags - Dynamically rendered -->
-        <div class="mt-4 flex flex-wrap gap-2">
+        <!-- Technology Tags -->
+        <div class="mt-4 flex flex-wrap items-center gap-2">
           @for (tag of project().tags; track tag) {
-          <span class="text-xs font-medium text-primary">#{{ tag }}</span>
+          <span class="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent"
+            >#{{ tag }}</span
+          >
           }
         </div>
 
         <!-- Action Buttons -->
-        <div class="mt-6 grid grid-cols-2 gap-3">
-          <!-- Primary Button -->
+        <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
           <a
             [href]="project().liveDemoUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-background dark:text-black transition-colors hover:bg-primary/80"
+            class="flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-semibold text-background transition-colors hover:bg-primary/80 dark:text-black"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,13 +99,11 @@ import { NgClass } from '@angular/common';
             </svg>
             Live Demo
           </a>
-
-          <!-- Secondary Button -->
           <a
             [href]="project().articleUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 rounded-lg bg-accent/20 py-2.5 text-center text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-text"
+            class="flex items-center justify-center gap-2 rounded-lg bg-accent/20 px-4 py-2.5 text-center text-sm font-semibold text-accent transition-colors hover:bg-accent hover:text-text"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,5 +1,5 @@
 <app-title [title]="'Projects'" />
-<section class="grid grid-cols-1 md:grid-cols-3 gap-6 my-4 md:my-6">
+<section class="grid grid-cols-1 gap-6 my-4 md:my-6">
   @for (item of projectData; track $index) {
   <app-project-card [project]="item" />
   }
