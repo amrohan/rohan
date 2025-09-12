@@ -223,7 +223,7 @@ export class Guestbook implements OnInit, OnDestroy {
   }
 
   resetForm() {
-    this.senderSignal.set('');
+    // this.senderSignal.set('');
     this.messageSignal.set('');
   }
 
