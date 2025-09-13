@@ -216,7 +216,7 @@ export class Guestbook implements OnInit, OnDestroy {
           this.scrollToTop();
         },
         error: (error) => {
-          console.error('Error submitting message:', error);
+          console.error('Error submitting message:', error.error.message);
           this.isLoading.set(false);
         },
       });
