@@ -177,7 +177,7 @@ export class Project {
       title: 'Linktree',
       description:
         'A lightweight and free alternative to Linktree that allows you to create a simple, customizable landing page for all your links. Perfect for sharing multiple links through a single URL with a clean and modern design.',
-      githubUrl: 'https://github.com/amrohan/timeline',
+      githubUrl: 'https://github.com/amrohan/LinkTree-Alternative',
       githubStars: 14,
       liveDemoUrl: 'https://amrohan.github.io/LinkTree-Alternative/templates/darktheme.html',
       articleUrl: 'https://github.com/amrohan/timeline/blob/main/README.md',
