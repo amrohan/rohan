@@ -1,6 +1,11 @@
-<app-title [title]="'Projects'" />
-<section class="grid grid-cols-1 gap-6 my-4 md:my-6">
-  @for (item of projectData; track $index) {
-  <app-project-card [project]="item" />
+<h1 class="text-4xl md:text-6xl text-center mt-10 md:mt-20 font-semibold">Projects</h1>
+<section class="grid grid-cols-1 gap-12 mt-24 mb-10">
+  @for (yearGroup of sortedProjectsByYear(); track yearGroup.year) {
+  <div class="flex flex-col justify-center items-start gap-6">
+    <h1 class="f-outline text-4xl md:text-6xl text-subtle">{{ yearGroup.year }}</h1>
+    @for (project of yearGroup.projects; track project.title) {
+    <app-project-card [project]="project" />
+    }
+  </div>
   }
 </section>

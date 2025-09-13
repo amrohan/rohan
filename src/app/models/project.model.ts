@@ -3,9 +3,10 @@ export interface ProjectModel {
   title: string;
   description: string;
   githubUrl: string;
-  githubStars?: number; // Optional property
+  githubStars?: number;
   liveDemoUrl: string;
   articleUrl: string;
   tags: string[];
   state?: string;
+  year: number;
 }
