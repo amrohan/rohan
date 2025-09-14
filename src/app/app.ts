@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Nav } from './components/nav/nav';
+import { ThemeService } from './theme';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { Nav } from './components/nav/nav';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('rohan');
+export class App implements OnInit {
+  private themeService = inject(ThemeService);
+
+  ngOnInit(): void {
+    this.themeService.set(this.themeService.theme());
+  }
 }

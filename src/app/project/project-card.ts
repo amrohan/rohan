@@ -7,9 +7,9 @@ import { ProjectModel } from '../models/project.model';
   template: `
     <a [href]="project().githubUrl" class="flex flex-col justify-center items-start gap-1.5 ">
       <h1 class="text-lg md:text-2xl hover:border-b border-green-600">{{ project().title }}</h1>
-      <p class="text-neutral-400 ">{{ project().description }}</p>
+      <p class="text-subtle hover:text">{{ project().description }}</p>
     </a>
-    <div class="flex justify-end items-center gap-10 h-16">
+    <div class="flex justify-end items-center gap-6 h-16">
       <!--Github   -->
       <a
         [href]="project().githubUrl"
@@ -58,7 +58,6 @@ import { ProjectModel } from '../models/project.model';
           <path d="M10 14 21 3" />
           <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
         </svg>
-        demo
       </a>
       }
     </div>

@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
-import { Title } from '../components/title';
-
 @Component({
   selector: 'app-work',
-  imports: [Title],
+  imports: [],
   templateUrl: './work.html',
   styleUrl: './work.css',
 })
 export class Work {
   skils = [
-    '.NET',
     'Angular',
+    'NextJs',
     'TypeScript',
     'C#',
+    '.NET Core',
     'Mysql',
     'NodeJs',
+    'Docker',
+    'Linux',
     'EF Core',
     'Git',
     'SQL',
