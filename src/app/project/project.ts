@@ -135,6 +135,19 @@ export class Project {
     },
     {
       imageUrl: '',
+      title: 'Cloudinary Transformation',
+      description:
+        'A fun web-based tool for experimenting with real-time webcam filters. Built on Next.js and Cloudinary, it allows users to apply, preview, and tweak image effects in a simple browser UI.',
+      githubUrl: 'https://github.com/amrohan/Cloudinary-Transformation',
+      githubStars: 0,
+      liveDemoUrl: 'https://cloudinary-transformation.vercel.app',
+      articleUrl: '',
+      tags: ['Next.js', 'Cloudinary', 'Image Filters', 'Web App'],
+      year: 2023,
+    },
+
+    {
+      imageUrl: '',
       title: 'Dev News',
       description:
         'A modern tech news platform powered by Next.js, Prisma, and MongoDB. It provides curated developer updates and integrates with a Telegram bot for real-time, chat-based news delivery.',
@@ -147,15 +160,14 @@ export class Project {
     },
     {
       imageUrl: '',
-      title: 'Cloudinary Transformation',
-      description:
-        'A fun web-based tool for experimenting with real-time webcam filters. Built on Next.js and Cloudinary, it allows users to apply, preview, and tweak image effects in a simple browser UI.',
-      githubUrl: 'https://github.com/amrohan/Cloudinary-Transformation',
-      githubStars: 0,
-      liveDemoUrl: 'https://cloudinary-transformation.vercel.app',
-      articleUrl: '',
-      tags: ['Next.js', 'Cloudinary', 'Image Filters', 'Web App'],
-      year: 2023,
+      title: 'ChatBot',
+      description:'A is a simple Telegram bot that automatically answers to people when they communicate with it, as well as providing new recent news articles from the tldr and dev.to pages.',
+      githubUrl: 'https://github.com/amrohan/ChatBot',
+      githubStars: 4,
+      liveDemoUrl: 'https://t.me/amrohan_bot',
+      articleUrl: 'https://github.com/amrohan/ChatBot/blob/main/readme.md',
+      tags: ['Python', 'Telegram Bot', 'Web Scraping', 'News Aggregator'],
+      year: 2022
     },
     {
       imageUrl: '',
