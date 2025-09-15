@@ -17,7 +17,7 @@ export class Project {
       description:
         'A modern, high-performance file manager for the terminal. Built with .NET and Spectre.Console for a fluid, visually-rich experience.',
       githubUrl: 'https://github.com/amrohan/termix',
-      githubStars: 110,
+      githubStars: 111,
       liveDemoUrl: '',
       articleUrl: 'https://github.com/amrohan/termix/blob/main/README.md',
       tags: ['.NET', 'C#', 'CLI', 'Spectre.Console', 'Developer Tool'],
