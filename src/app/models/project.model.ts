@@ -9,4 +9,6 @@ export interface ProjectModel {
   tags: string[];
   state?: string;
   year: number;
+  downloadCount?: number;
+  packageUrl?: string;
 }

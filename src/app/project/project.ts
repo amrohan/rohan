@@ -15,19 +15,33 @@ export class Project {
       imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/termix.webp',
       title: 'Termix',
       description:
-        'A modern, high-performance file manager for the terminal. Built with .NET and Spectre.Console for a fluid, visually-rich experience.',
+        'A modern, high-performance file manager for the terminal. Built with .NET and Spectre.Console, it offers a visually rich, intuitive interface. Designed for speed, productivity, and a smooth developer experience.',
       githubUrl: 'https://github.com/amrohan/termix',
       githubStars: 111,
       liveDemoUrl: '',
       articleUrl: 'https://github.com/amrohan/termix/blob/main/README.md',
       tags: ['.NET', 'C#', 'CLI', 'Spectre.Console', 'Developer Tool'],
+      downloadCount:2.2,
+      packageUrl: 'https://www.nuget.org/packages/Termix/',
+      year: 2025,
+    },
+    {
+      imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/echomail.webp',
+      title: 'Echomail',
+      description:
+        'A lightning-fast email relay API with JWT auth, Gmail SMTP, and contact form support. Built with .NET 9 Minimal API, it is ideal for portfolios, landing pages, and lightweight internal tools.',
+      githubUrl: 'https://github.com/amrohan/echomail',
+      githubStars: 4,
+      liveDemoUrl: '',
+      articleUrl: 'https://github.com/amrohan/echomail/blob/main/README.md',
+      tags: ['.NET 9', 'C#', 'Minimal API', 'SQLite', 'Gmail API'],
       year: 2025,
     },
     {
       imageUrl: '',
       title: 'CS2TS',
       description:
-        'A developer tool that converts C# models to TypeScript interfaces and compares differences between them. Built with Angular 19+, Signals, and Angular Material, it streamlines the process of keeping your backend and frontend models in sync.',
+        'A developer tool that converts C# models into TypeScript interfaces and compares differences between them. Built with Angular 19+, Signals, and Angular Material, it keeps backend and frontend models perfectly in sync.',
       githubUrl: 'https://github.com/amrohan/CS2TS',
       githubStars: 1,
       liveDemoUrl: 'https://csts.pages.dev',
@@ -35,26 +49,11 @@ export class Project {
       tags: ['C#', 'TypeScript', 'Angular', 'Model Converter'],
       year: 2025,
     },
-
-    {
-      imageUrl:
-        'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/echomail.webp',
-      title: 'Echomail',
-      description:
-        'Lightning-fast email relay API that just works - JWT auth, contact forms, and Gmail SMTP in one tiny package. Built with .NET 9 Minimal API for portfolios, landing pages, and internal tools.',
-      githubUrl: 'https://github.com/amrohan/echomail',
-      githubStars: 4,
-      liveDemoUrl: '',
-      articleUrl: 'https://github.com/amrohan/echomail/blob/main/README.md',
-      tags: ['.NET 9', 'C#', 'Minimal API', 'SQLite', 'Gmail API'],
-      state: 'object-contain',
-      year: 2025,
-    },
     {
       imageUrl: '',
       title: 'Migro',
       description:
-        'A command-line tool that scans C# controller endpoints and updates their authorization attributes. Migro streamlines managing role-based authorization by bridging a simple CSV file with your source code, offering both a scanner to discover endpoints and an updater to apply changes.',
+        'A CLI tool for managing role-based authorization in .NET projects. It scans C# controllers, maps endpoints to a CSV, and updates authorization attributes automatically, making security audits faster and easier.',
       githubUrl: 'https://github.com/amrohan/migro',
       githubStars: 0,
       liveDemoUrl: '',
@@ -66,7 +65,7 @@ export class Project {
       imageUrl: '',
       title: 'Go Stream',
       description:
-        'A self-hostable media player that allows users to upload and stream content. Built entirely in Go, it provides a lightweight and efficient solution for managing and streaming media on your own server.',
+        'A lightweight, self-hostable media player written in Go. It lets users upload and stream their own content, providing a simple yet powerful solution for personal media hosting and streaming.',
       githubUrl: 'https://github.com/amrohan/Go-Stream',
       githubStars: 0,
       liveDemoUrl: '',
@@ -78,7 +77,7 @@ export class Project {
       imageUrl: 'https://github.com/amrohan/dotcal/blob/main/public/preview.png',
       title: 'Dotcal',
       description:
-        'A minimalistic dot calendar app that visually represents the entire year as a grid of dots. Each dot signifies a day, with the current day highlighted for easy reference. The interface is clean, intuitive, and designed for simplicity.',
+        'A minimal dot-calendar app that represents the year as a grid of days. Each dot signifies a day, with the current one highlighted. Its clean, intuitive design makes time tracking visually simple.',
       githubUrl: 'https://github.com/amrohan/dotcal',
       githubStars: 0,
       liveDemoUrl: 'https://dotcal.vercel.app',
@@ -90,7 +89,7 @@ export class Project {
       imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/memora.webp',
       title: 'Memora',
       description:
-        'A sleek, user-friendly bookmark manager designed to help you organize, categorize, and quickly access your favorite links. Built with Angular and featuring PWA support, Web Share API integration, and responsive design.',
+        'A sleek bookmark manager to organize and access your favorite links. Built with Angular, it supports PWA features, Web Share API, and works seamlessly across devices with responsive design.',
       githubUrl: 'https://github.com/amrohan/memora',
       githubStars: 0,
       liveDemoUrl: 'https://memora.pages.dev',
@@ -102,7 +101,7 @@ export class Project {
       imageUrl: 'timeline.webp',
       title: 'Timeline',
       description:
-        "A sleek web app for effortlessly curating and sharing life's moments. Organize events with images, titles, and dates in a visually engaging chronological timeline interface.",
+        'A web app to curate and share life’s moments in a visual timeline. Users can add events with images, titles, and dates, then browse them in a sleek, chronological, and shareable interface.',
       githubUrl: 'https://github.com/amrohan/timeline',
       githubStars: 1,
       liveDemoUrl: 'https://vangu.pages.dev',
@@ -114,7 +113,7 @@ export class Project {
       imageUrl: 'https://github.com/amrohan/notebook/raw/main/static/preview.png',
       title: 'Notebook',
       description:
-        'A lightweight, self-hosted note-taking web application built with SvelteKit and Dexie.js. It utilizes IndexedDB for offline storage, allowing users to create, save, import, and export notes seamlessly within their browser.',
+        'A lightweight note-taking app built with SvelteKit and Dexie.js. It stores notes offline in IndexedDB, and supports creating, saving, importing, and exporting notes directly in the browser.',
       githubUrl: 'https://github.com/amrohan/notebook',
       githubStars: 0,
       liveDemoUrl: 'https://roro.pages.dev',
@@ -126,7 +125,7 @@ export class Project {
       imageUrl: '',
       title: 'Navami',
       description:
-        'An in-house admin and user tool used by the company for efficient recipe management. Admins can manage and update recipes, while users can browse and track them, streamlining workflow and ensuring consistency across the team.',
+        'An internal recipe management tool for both admins and users. Admins can add and update recipes, while users browse and track them. Built with Blazor and SQL, it streamlines team workflows.',
       githubUrl: 'https://github.com/amrohan/navami',
       githubStars: 0,
       liveDemoUrl: '',
@@ -134,12 +133,11 @@ export class Project {
       tags: ['C#', 'Blazor', 'SQL', 'Internal Tool', 'Recipe Management', 'Web App'],
       year: 2023,
     },
-
     {
       imageUrl: '',
-      title: 'Dev news',
+      title: 'Dev News',
       description:
-        'A modern, responsive web application to deliver the latest tech news. Built with Next.js 13, Prisma, and MongoDB, it also integrates a Telegram bot for curated news updates directly in chat.',
+        'A modern tech news platform powered by Next.js, Prisma, and MongoDB. It provides curated developer updates and integrates with a Telegram bot for real-time, chat-based news delivery.',
       githubUrl: 'https://github.com/amrohan/DevNews-Frontend',
       githubStars: 2,
       liveDemoUrl: 'https://devxnews.netlify.app',
@@ -149,9 +147,9 @@ export class Project {
     },
     {
       imageUrl: '',
-      title: 'Cloudinary transformation',
+      title: 'Cloudinary Transformation',
       description:
-        'A web-based tool that allows users to apply various filters to webcam images. Built with Next.js, it leverages Cloudinary for real-time image transformations, providing an intuitive interface for experimenting with different effects.',
+        'A fun web-based tool for experimenting with real-time webcam filters. Built on Next.js and Cloudinary, it allows users to apply, preview, and tweak image effects in a simple browser UI.',
       githubUrl: 'https://github.com/amrohan/Cloudinary-Transformation',
       githubStars: 0,
       liveDemoUrl: 'https://cloudinary-transformation.vercel.app',
@@ -159,12 +157,11 @@ export class Project {
       tags: ['Next.js', 'Cloudinary', 'Image Filters', 'Web App'],
       year: 2023,
     },
-
     {
       imageUrl: '',
-      title: 'Chathub',
+      title: 'ChatHub',
       description:
-        'A free, open-source real-time chat room built with React.js and Firebase. Chat-Hub allows users to join chat rooms, send messages, and engage in live conversations with an intuitive interface.',
+        'An open-source real-time chat app built with React and Firebase. It enables users to join rooms, exchange messages, and engage in live conversations with a simple and modern interface.',
       githubUrl: 'https://github.com/amrohan/Chat-Hub',
       githubStars: 1,
       liveDemoUrl: 'https://chathub.gq',
@@ -174,9 +171,9 @@ export class Project {
     },
     {
       imageUrl: '',
-      title: 'Linktree',
+      title: 'Linktree Alternative',
       description:
-        'A lightweight and free alternative to Linktree that allows you to create a simple, customizable landing page for all your links. Perfect for sharing multiple links through a single URL with a clean and modern design.',
+        'A free alternative to Linktree that creates customizable landing pages for multiple links. Lightweight, responsive, and perfect for sharing all your profiles or projects with a single URL.',
       githubUrl: 'https://github.com/amrohan/LinkTree-Alternative',
       githubStars: 14,
       liveDemoUrl: 'https://amrohan.github.io/LinkTree-Alternative/templates/darktheme.html',

@@ -1,6 +1,9 @@
 import { Routes} from '@angular/router';
 import { Home } from './home/home';
 import {titleResolver} from './core/title-resolver';
+import {Project} from './project/project';
+import {Work} from './work/work';
+import {Contact} from './contact/contact';
 
 export const routes: Routes = [
   {
@@ -10,17 +13,17 @@ export const routes: Routes = [
   },
   {
     path: 'project',
-    loadComponent: () => import('./project/project').then((m) => m.Project),
+    component: Project,
     title: titleResolver,
   },
   {
     path: 'work',
-    loadComponent: () => import('./work/work').then((m) => m.Work),
+    component: Work,
     title: titleResolver,
   },
   {
     path: 'contact',
-    loadComponent: () => import('./contact/contact').then((m) => m.Contact),
+    component: Contact,
     title: titleResolver,
   },
   {
