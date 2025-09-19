@@ -21,15 +21,16 @@ export class Project {
       liveDemoUrl: '',
       articleUrl: 'https://github.com/amrohan/termix/blob/main/README.md',
       tags: ['.NET', 'C#', 'CLI', 'Spectre.Console', 'Developer Tool'],
-      downloadCount:2.2,
+      downloadCount: 2.2,
       packageUrl: 'https://www.nuget.org/packages/Termix/',
       year: 2025,
     },
     {
-      imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/echomail.webp',
+      imageUrl:
+        'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/echomail.webp',
       title: 'Echomail',
       description:
-        'A lightning-fast email relay API with JWT auth, Gmail SMTP, and contact form support. Built with .NET 9 Minimal API, it is ideal for portfolios, landing pages, and lightweight internal tools.',
+        'A lightning-fast email relay API with JWT auth, Gmail SMTP, and contact form support. Built with .NET 9 Minimal API, it is ideal for portfolios, landing pages, and lightweight internal tools and anything.',
       githubUrl: 'https://github.com/amrohan/echomail',
       githubStars: 4,
       liveDemoUrl: '',
@@ -89,7 +90,7 @@ export class Project {
       imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/memora.webp',
       title: 'Memora',
       description:
-        'A sleek bookmark manager to organize and access your favorite links. Built with Angular, it supports PWA features, Web Share API, and works seamlessly across devices with responsive design.',
+        'A sleek bookmark manager to organize and access your favorite links. Built with Angular, it supports PWA features, Web Share API, and works seamlessly across devices.',
       githubUrl: 'https://github.com/amrohan/memora',
       githubStars: 0,
       liveDemoUrl: 'https://memora.pages.dev',
@@ -160,20 +161,21 @@ export class Project {
     },
     {
       imageUrl: '',
-      title: 'ChatBot',
-      description:'A is a simple Telegram bot that automatically answers to people when they communicate with it, as well as providing new recent news articles from the tldr and dev.to pages.',
+      title: 'Chat Bot',
+      description:
+        'A is a simple Telegram bot that automatically answers to people when they communicate with it, as well as providing new recent news articles from the tldr and dev.to pages.',
       githubUrl: 'https://github.com/amrohan/ChatBot',
       githubStars: 4,
       liveDemoUrl: 'https://t.me/amrohan_bot',
       articleUrl: 'https://github.com/amrohan/ChatBot/blob/main/readme.md',
       tags: ['Python', 'Telegram Bot', 'Web Scraping', 'News Aggregator'],
-      year: 2022
+      year: 2022,
     },
     {
       imageUrl: '',
-      title: 'ChatHub',
+      title: 'Chathub',
       description:
-        'An open-source real-time chat app built with React and Firebase. It enables users to join rooms, exchange messages, and engage in live conversations with a simple and modern interface.',
+        'An open-source real-time chat app built with React and Firebase. It enables users to join rooms, exchange messages, and engage in live conversations.',
       githubUrl: 'https://github.com/amrohan/Chat-Hub',
       githubStars: 1,
       liveDemoUrl: 'https://chathub.gq',
