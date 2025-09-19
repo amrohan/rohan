@@ -9,14 +9,19 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <script>
-      document.documentElement.classList.toggle(
-        'dark',
-        localStorage.theme === 'dark' ||
-          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-      );
-      localStorage.theme = 'light';
-      localStorage.theme = 'dark';
-      localStorage.removeItem('theme');
+      (function () {
+        const storageKey = 'theme-preference';
+        const themePreference = localStorage.getItem(storageKey);
+        const isDark =
+          themePreference === 'dark' ||
+          (!themePreference && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
     </script>
   </head>
   <body>

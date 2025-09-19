@@ -1,59 +1,63 @@
-# Rohan -Portfolio
+# Rohan's Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+Welcome to my portfolio! This repository showcases my work, skills, and projects as a developer. Below, you'll find an overview of the structure and purpose of this portfolio.
 
-## Development server
+## Table of Contents
 
-To start a local development server, run:
+- [Rohan's Portfolio](#rohans-portfolio)
+  - [Table of Contents](#table-of-contents)
+  - [About Me](#about-me)
+  - [Projects](#projects)
+  - [Technologies](#technologies)
+  - [How to Run](#how-to-run)
+  - [Contact](#contact)
 
-```bash
-ng serve
-```
+## About Me
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Hi, I'm Rohan! I'm a passionate developer with expertise in building modern web applications. This portfolio highlights my journey, skills, and the projects I've worked on.
 
-## Code scaffolding
+## Projects
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Here are some of the key projects included in this portfolio:
 
-```bash
-ng generate component component-name
-```
+- **Hero Component**: A dynamic and reusable hero section for web applications.
+- **Guestbook**: A guestbook application to collect and display user messages.
+- **Theme Toggle**: A theme toggle feature for light and dark modes.
+- **Project Cards**: Interactive project cards showcasing my work.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Technologies
 
-```bash
-ng generate --help
-```
+This portfolio is built using:
 
-## Building
+- **Angular**: For building the frontend.
+- **TypeScript**: For type-safe JavaScript development.
+- **CSS**: For styling the components.
 
-To build the project run:
+## How to Run
 
-```bash
-ng build
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/amrohan/rohan.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd rohan
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+5. Open your browser and visit `http://localhost:4200`.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Contact
 
-## Running unit tests
+Feel free to reach out to me for collaboration or inquiries:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Email**: contact@amrohan.in
+- **GitHub**: [amrohan](https://github.com/amrohan)
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Thank you for visiting my portfolio!
