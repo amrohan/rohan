@@ -1,11 +1,14 @@
-import { Component, input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, input, signal } from '@angular/core';
 import { ProjectModel } from '../models/project.model';
 
 @Component({
   selector: 'app-project-card',
   standalone: true,
   template: `
-    <div class="flex flex-col justify-center items-start gap-1.5 ">
+    <div
+      class="flex flex-col justify-center items-start gap-1.5"
+      [class.animate-fade-in-up]="isVisible()"
+    >
       <a [href]="project().githubUrl">
         <h1 class="text-lg md:text-2xl dark:hover:text-shadow-neutral-50">{{ project().title }}</h1>
         <p
@@ -19,7 +22,7 @@ import { ProjectModel } from '../models/project.model';
         <a
           title="Download Count"
           [href]="project().packageUrl"
-          class="text-subtle hover:text-blue-700 dark:hover:text-[var(--primary)] flex justify-center items-center gap-2"
+          class="text-subtle hover:text-[var(--primary)] flex justify-center items-center gap-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -98,6 +101,22 @@ import { ProjectModel } from '../models/project.model';
     </div>
   `,
 })
-export class ProjectCard {
+export class ProjectCard implements AfterViewInit {
   project = input.required<ProjectModel>();
+  isVisible = signal(false);
+
+  el = inject(ElementRef);
+  ngAfterViewInit() {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.isVisible.set(true);
+          observer.unobserve(this.el.nativeElement);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(this.el.nativeElement);
+  }
 }
