@@ -1,9 +1,9 @@
-import { Routes} from '@angular/router';
+import { Routes } from '@angular/router';
 import { Home } from './home/home';
-import {titleResolver} from './core/title-resolver';
-import {Project} from './project/project';
-import {Work} from './work/work';
-import {Contact} from './contact/contact';
+import { titleResolver } from './core/title-resolver';
+import { Project } from './project/project';
+import { Work } from './work/work';
+import { Contact } from './contact/contact';
 
 export const routes: Routes = [
   {
@@ -31,4 +31,5 @@ export const routes: Routes = [
     loadComponent: () => import('./guestbook/guestbook').then((m) => m.Guestbook),
     title: titleResolver,
   },
+  { path: '**', redirectTo: '404' },
 ];
