@@ -1,29 +1,32 @@
 <div class="w-full max-w-5xl mx-auto px-0 mt-10 md:mt-20">
+  @for (experience of experiences; track experience.id) {
+  <!-- <h1 class="f-outline text-4xl text-subtle mb-8">
+    {{ experience.startDate }} - {{ experience.endDate }}
+  </h1> -->
   <div class="relative mb-20">
     <div class="md:grid md:grid-cols-3 md:gap-12">
+      <!-- Job Header & Responsibilities -->
       <div class="md:col-span-2 space-y-10">
         <!-- Job Header -->
         <div>
-          <h2 class="text-xl md:text-3xl font-bold text-text">Software Developer Executive</h2>
+          <h2 class="text-xl md:text-3xl font-bold text-text">{{ experience.title }}</h2>
           <h3 class="text-base md:text-xl font-semibold text-primary mt-1">
-            Seagull Victsoft Private Ltd.
+            {{ experience.company }}
           </h3>
           <p class="text-base md:text-lg leading-relaxed mt-4 text-subtle">
-            A hybrid role combining hands on development with product leadership. Responsible for
-            <span class="text-primary"
-              >leading the frontend team, architecting scalable backend systems</span
-            >, and aligning technical strategy with stakeholder objectives to deliver robust
-            business applications.
+            {{ experience.description }}
           </p>
         </div>
 
-        <!-- Key Responsibilities  -->
+        <!-- Key Responsibilities -->
         <div>
           <h4 class="text-lg md:text-xl font-semibold text-text mb-6">Key Responsibilities</h4>
           <div class="space-y-6">
-            <!-- Item 1: Frontend Leadership -->
+            @for (responsibility of experience.responsibilities; track responsibility.title) {
             <div class="flex items-start gap-4">
               <div class="flex-shrink-0 size-10 flex items-center justify-center rounded-lg">
+                <!-- Layout Icon -->
+                @if (responsibility.icon === 'layout') {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -40,19 +43,9 @@
                   <path d="M3 9h18" />
                   <path d="M9 21V9" />
                 </svg>
-              </div>
-              <div>
-                <h5 class="font-semibold">Frontend Architecture & Leadership</h5>
-                <p class="text-sm text-text/70 mt-1 text-subtle">
-                  Directed the frontend team, established the architectural roadmap, and personally
-                  coded critical UI components to ensure high-quality, user-centric application
-                  delivery.
-                </p>
-              </div>
-            </div>
-            <!-- Item 2: Backend -->
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 size-10 flex items-center justify-center rounded-lg">
+                }
+                <!-- Database Icon -->
+                @if (responsibility.icon === 'database') {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -69,18 +62,9 @@
                   <path d="M3 5v14a9 3 0 0 0 18 0V5" />
                   <path d="M3 12a9 3 0 0 0 18 0" />
                 </svg>
-              </div>
-              <div>
-                <h5 class="font-semibold">Backend & Infrastructure</h5>
-                <p class="text-sm text-text/70 mt-1 text-subtle">
-                  Engineered core backend services including a robust authentication system, a
-                  real-time notification engine, and performance-optimized APIs using .NET.
-                </p>
-              </div>
-            </div>
-            <!-- Item 3: Product Management -->
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 size-10 flex items-center justify-center rounded-lg">
+                }
+                <!-- Users Icon -->
+                @if (responsibility.icon === 'users') {
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -98,20 +82,21 @@
                   <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
+                }
               </div>
               <div>
-                <h5 class="font-semibold">Product Management & Strategy</h5>
+                <h5 class="font-semibold">{{ responsibility.title }}</h5>
                 <p class="text-sm text-text/70 mt-1 text-subtle">
-                  Led the product lifecycle by collaborating with stakeholders to gather
-                  requirements, define project scope, and translate business needs into actionable
-                  technical plans.
+                  {{ responsibility.description }}
                 </p>
               </div>
             </div>
+            }
           </div>
         </div>
       </div>
 
+      <!-- Metadata -->
       <div class="md:col-span-1 space-y-8 mt-10 md:mt-0">
         <!-- Date & Location -->
         <div class="p-4 bg-background rounded-lg border border-neutral-300 dark:border-neutral-500">
@@ -133,7 +118,9 @@
               <line x1="8" x2="8" y1="2" y2="6" />
               <line x1="3" x2="21" y1="10" y2="10" />
             </svg>
-            <span class="font-medium text-sm">May 2022 - Present</span>
+            <span class="font-medium text-sm"
+              >{{ experience.startDate }} - {{ experience.endDate }}</span
+            >
           </div>
           <div class="flex items-center gap-3 mt-3">
             <svg
@@ -151,7 +138,9 @@
               <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <span class="font-medium text-sm">Mumbai, India (Full-time)</span>
+            <span class="font-medium text-sm"
+              >{{ experience.location }} ({{ experience.type }})</span
+            >
           </div>
         </div>
 
@@ -159,10 +148,10 @@
         <div>
           <h4 class="text-lg md:text-xl font-semibold text-text mb-3">Technologies & Skills</h4>
           <div class="flex flex-wrap gap-2">
-            @for (item of skils; track $index) {
-            <span class="border px-3 py-1 text-subtle rounded-md font-medium text-sm">{{
-              item
-            }}</span>
+            @for (skill of experience.skills; track skill) {
+            <span class="border px-3 py-1 text-subtle rounded-md font-medium text-sm">
+              {{ skill }}
+            </span>
             }
           </div>
         </div>
@@ -171,7 +160,7 @@
         <div>
           <h4 class="text-lg md:text-xl font-semibold text-text mb-3">Key Achievements</h4>
           <ul class="space-y-2">
-            @for (item of keyAchievements; track $index) {
+            @for (achievement of experience.achievements; track achievement) {
             <li class="flex items-center gap-3">
               <svg
                 class="size-5 text-primary"
@@ -187,12 +176,18 @@
               >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <span class="text-sm opacity-80">{{ item }}</span>
+              <span class="text-sm opacity-80">{{ achievement }}</span>
             </li>
             }
           </ul>
         </div>
       </div>
     </div>
+
+    <!-- Divider between experiences -->
+    @if (!$last) {
+    <div class="mt-20 mb-20 border-t border-neutral-300 dark:border-neutral-500"></div>
+    }
   </div>
+  }
 </div>
