@@ -171,6 +171,7 @@
         <div>
           <h4 class="text-lg md:text-xl font-semibold text-text mb-3">Key Achievements</h4>
           <ul class="space-y-2">
+            @for (item of keyAchievements; track $index) {
             <li class="flex items-center gap-3">
               <svg
                 class="size-5 text-primary"
@@ -186,44 +187,9 @@
               >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <span class="text-sm opacity-80">Architected a scalable frontend framework.</span>
+              <span class="text-sm opacity-80">{{ item }}</span>
             </li>
-            <li class="flex items-center gap-3">
-              <svg
-                class="size-5 text-primary"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-sm opacity-80"
-                >Implemented secure auth & notification systems.</span
-              >
-            </li>
-            <li class="flex items-center gap-3">
-              <svg
-                class="size-5 text-primary"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              <span class="text-sm opacity-80">Managed product roadmap with stakeholders.</span>
-            </li>
+            }
           </ul>
         </div>
       </div>

@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-work',
   imports: [],
-  templateUrl: './work.html',
-  styleUrl: './work.css',
+  templateUrl: './experience.html',
+  styleUrl: './experience.css',
 })
-export class Work {
+export class Experience {
   skils = [
     'Angular',
     'NextJs',
@@ -31,5 +31,12 @@ export class Work {
     'Angular Material',
     'Product Management',
     'Team Leadership',
+  ];
+
+  keyAchievements = [
+    'Won the official Next.js Hackathon hosted by Vercel.',
+    'Architected a scalable frontend framework.',
+    'Implemented secure authentication and notification systems.',
+    'Managed the product roadmap with stakeholders.',
   ];
 }

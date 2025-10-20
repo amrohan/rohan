@@ -2,8 +2,9 @@ import { Routes } from '@angular/router';
 import { Home } from './home/home';
 import { titleResolver } from './core/title-resolver';
 import { Project } from './project/project';
-import { Work } from './work/work';
+import { Experience } from './experience/experience';
 import { Contact } from './contact/contact';
+import { PageNotFound } from './page-not-found/page-not-found';
 
 export const routes: Routes = [
   {
@@ -17,8 +18,8 @@ export const routes: Routes = [
     title: titleResolver,
   },
   {
-    path: 'work',
-    component: Work,
+    path: 'experience',
+    component: Experience,
     title: titleResolver,
   },
   {
@@ -31,5 +32,9 @@ export const routes: Routes = [
     loadComponent: () => import('./guestbook/guestbook').then((m) => m.Guestbook),
     title: titleResolver,
   },
-  { path: '**', redirectTo: '404' },
+  {
+    path: 'page-not-found',
+    component: PageNotFound,
+  },
+  { path: '**', redirectTo: 'page-not-found' },
 ];
