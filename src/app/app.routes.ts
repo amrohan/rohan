@@ -35,6 +35,7 @@ export const routes: Routes = [
   {
     path: 'page-not-found',
     component: PageNotFound,
+    title: titleResolver,
   },
   { path: '**', redirectTo: 'page-not-found' },
 ];
