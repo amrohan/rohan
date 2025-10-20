@@ -12,12 +12,25 @@ import { ProjectCard } from './project-card';
 export class Project {
   projectData = signal<ProjectModel[]>([
     {
+      imageUrl: 'https://github.com/user-attachments/assets/51d3006d-7a54-4ee3-bbea-7ec8970a472b',
+      title: 'Clipy',
+      description:
+        'Clipy is a fast and minimal web app that lets you share notes instantly through unique links. No accounts, no clutter — just type a note, generate a link, and share it securely with anyone.',
+      githubUrl: 'https://github.com/amrohan/clipy',
+      githubStars: 0,
+      liveDemoUrl: 'https://clipy.amrohan.in',
+      articleUrl: 'https://github.com/amrohan/clipy/blob/main/README.md',
+      tags: ['ASP.NET Core', 'C#', 'Pico.css', 'Web App', 'Privacy'],
+      packageUrl: '',
+      year: 2025,
+    },
+    {
       imageUrl: 'https://res.cloudinary.com/amrohan/image/upload/v1757511898/Portfolio/termix.webp',
       title: 'Termix',
       description:
         'A modern, high-performance file manager for the terminal. Built with .NET and Spectre.Console, it offers a visually rich, intuitive interface. Designed for speed, productivity, and a smooth developer experience.',
       githubUrl: 'https://github.com/amrohan/termix',
-      githubStars: 111,
+      githubStars: 112,
       liveDemoUrl: '',
       articleUrl: 'https://github.com/amrohan/termix/blob/main/README.md',
       tags: ['.NET', 'C#', 'CLI', 'Spectre.Console', 'Developer Tool'],

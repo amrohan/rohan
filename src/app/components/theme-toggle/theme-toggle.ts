@@ -7,7 +7,7 @@ import { ThemeService } from '../../theme';
   styleUrl: './theme-toggle.css',
   template: `
     <button
-      class="relative p-3 rounded-full size-11 bg-text/5 backdrop-blur-sm border border-text/10 hover:bg-text/10 hover:border-primary/50 transition-all duration-300 group cursor-pointer"
+      class="relative p-3 rounded-full size-11 bg-text/5 backdrop-blur-sm hover:bg-text/10 hover:border-primary/50 transition-all duration-300 group cursor-pointer"
       (click)="theme.toggle()"
     >
       @if (theme.theme()!='dark' ) {
@@ -51,6 +51,12 @@ import { ThemeService } from '../../theme';
         />
       </svg>
       }
+      <!-- Tooltip -->
+      <div
+        class="absolute bottom-full left-1/2 -translate-x-1/2 translate-y-1/4 bg-gray-800 text-white text-xs rounded-md py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+      >
+        Switch theme to {{ theme.isDark() ? 'light' : 'dark' }} mode
+      </div>
     </button>
   `,
 })
