@@ -30,11 +30,11 @@ export class Project {
       description:
         'A modern, high-performance file manager for the terminal. Built with .NET and Spectre.Console, it offers a visually rich, intuitive interface. Designed for speed, productivity, and a smooth developer experience.',
       githubUrl: 'https://github.com/amrohan/termix',
-      githubStars: 112,
+      githubStars: 117,
       liveDemoUrl: '',
       articleUrl: 'https://github.com/amrohan/termix/blob/main/README.md',
       tags: ['.NET', 'C#', 'CLI', 'Spectre.Console', 'Developer Tool'],
-      downloadCount: 3.2,
+      downloadCount: 3.5,
       packageUrl: 'https://www.nuget.org/packages/Termix/',
       year: 2025,
     },
@@ -211,14 +211,17 @@ export class Project {
   ]);
 
   sortedProjectsByYear = computed(() => {
-    const grouped = this.projectData().reduce((acc, project) => {
-      const year = project.year;
-      if (!acc[year]) {
-        acc[year] = [];
-      }
-      acc[year].push(project);
-      return acc;
-    }, {} as Record<number, ProjectModel[]>);
+    const grouped = this.projectData().reduce(
+      (acc, project) => {
+        const year = project.year;
+        if (!acc[year]) {
+          acc[year] = [];
+        }
+        acc[year].push(project);
+        return acc;
+      },
+      {} as Record<number, ProjectModel[]>,
+    );
 
     return Object.keys(grouped)
       .map(Number)
