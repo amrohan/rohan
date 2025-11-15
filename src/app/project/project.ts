@@ -34,7 +34,7 @@ export class Project {
       liveDemoUrl: '',
       articleUrl: 'https://github.com/amrohan/termix/blob/main/README.md',
       tags: ['.NET', 'C#', 'CLI', 'Spectre.Console', 'Developer Tool'],
-      downloadCount: 3.5,
+      downloadCount: 3.6,
       packageUrl: 'https://www.nuget.org/packages/Termix/',
       year: 2025,
     },
