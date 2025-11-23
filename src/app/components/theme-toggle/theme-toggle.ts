@@ -4,11 +4,10 @@ import { ThemeService } from '../../theme';
 @Component({
   selector: 'app-theme-toggle',
   imports: [],
-  styleUrl: './theme-toggle.css',
   template: `
     <button
       class="relative p-3 rounded-full size-11 bg-text/5 backdrop-blur-sm hover:bg-text/10 hover:border-primary/50 transition-all duration-300 group cursor-pointer"
-      (click)="theme.toggle()"
+      (click)="theme.animatedToggle($event)"
     >
       @if (theme.theme()!='dark' ) {
       <svg

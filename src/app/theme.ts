@@ -44,4 +44,26 @@ export class ThemeService {
       document.documentElement.classList.toggle('dark', theme === 'dark');
     }
   }
+
+  animatedToggle(event: MouseEvent) {
+    const x = event.clientX;
+    const y = event.clientY;
+
+    const layers = ['theme-ripple', 'theme-ripple-2', 'theme-ripple-3'];
+
+    layers.forEach((cls, i) => {
+      const el = document.createElement('div');
+      el.classList.add(cls);
+      el.style.setProperty('--x', x + 'px');
+      el.style.setProperty('--y', y + 'px');
+
+      el.style.animationDelay = `${i * 70}ms`;
+
+      document.body.appendChild(el);
+
+      el.addEventListener('animationend', () => el.remove());
+    });
+
+    setTimeout(() => this.toggle(), 80);
+  }
 }

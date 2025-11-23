@@ -9,14 +9,14 @@ import { ProjectModel } from '../models/project.model';
       class="flex flex-col justify-center items-start gap-1.5"
       [class.animate-fade-in-up]="isVisible()"
     >
-      <a [href]="project().githubUrl">
-        <h1 class="text-lg md:text-2xl dark:hover:text-shadow-neutral-50">{{ project().title }}</h1>
-        <p
-          class="text-subtle mt-3 hover:text-shadow-neutral-800 dark:hover:text-shadow-neutral-50 hover:opacity-90"
-        >
-          {{ project().description }}
-        </p>
-      </a>
+      <!-- <a [href]="project().githubUrl"> -->
+      <h1 class="text-lg md:text-2xl dark:hover:text-shadow-neutral-50">{{ project().title }}</h1>
+      <p
+        class="text-subtle mt-3 hover:text-shadow-neutral-800 dark:hover:text-shadow-neutral-50 hover:opacity-90"
+      >
+        {{ project().description }}
+      </p>
+      <!-- </a> -->
 
       <div class="flex justify-start items-center gap-6 h-16 w-full">
         <!-- Download Count -->
