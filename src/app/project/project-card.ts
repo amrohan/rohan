@@ -3,55 +3,49 @@ import { ProjectModel } from '../models/project.model';
 
 @Component({
   selector: 'app-project-card',
-  standalone: true,
   template: `
     <div
       class="flex flex-col justify-center items-start gap-1.5"
       [class.animate-fade-in-up]="isVisible()"
     >
-      <!-- <a [href]="project().githubUrl"> -->
-      <h1 class="text-lg md:text-2xl dark:hover:text-shadow-neutral-50">{{ project().title }}</h1>
-      <p
-        class="text-subtle mt-3 hover:text-shadow-neutral-800 dark:hover:text-shadow-neutral-50 hover:opacity-90"
-      >
+      <h2>{{ project().title }}</h2>
+      <p class="text-subtle mt-3 hover:opacity-90">
         {{ project().description }}
       </p>
-      <!-- </a> -->
 
       <div class="flex justify-start items-center gap-6 h-16 w-full">
         <!-- Download Count -->
         @if (project().downloadCount) {
-        <div class="relative group">
-          <a
-            title="Download Count"
-            [href]="project().packageUrl"
-            class="text-subtle hover:text-[var(--primary)] flex justify-center items-center gap-2"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="size-5 text-current"
+          <div class="relative group">
+            <a
+              title="Download Count"
+              [href]="project().packageUrl"
+              class="text-subtle hover:text-[var(--primary)] flex justify-center items-center gap-2"
             >
-              <path d="M12 15V3" />
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <path d="m7 10 5 5 5-5" />
-            </svg>
-            {{ project().downloadCount }}K
-          </a>
-          <!-- Tooltip -->
-          <div
-            class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded-md py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
-          >
-            View package and downloads
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-5 text-current"
+              >
+                <path d="M12 15V3" />
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <path d="m7 10 5 5 5-5" />
+              </svg>
+              {{ project().downloadCount }}K
+            </a>
+            <div
+              class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded-md py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+            >
+              View package and downloads
+            </div>
           </div>
-        </div>
         }
 
         <!-- GitHub + Demo Links -->
@@ -81,10 +75,9 @@ import { ProjectModel } from '../models/project.model';
                 <path d="M9 18c-4.51 2-5-2-7-2" />
               </svg>
               @if (project().githubStars) {
-              <span>{{ project().githubStars }}</span>
+                <span>{{ project().githubStars }}</span>
               }
             </a>
-            <!-- Tooltip -->
             <div
               class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded-md py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
             >
@@ -94,36 +87,35 @@ import { ProjectModel } from '../models/project.model';
 
           <!-- Live Demo -->
           @if (project().liveDemoUrl) {
-          <div class="relative group">
-            <a
-              title="Live Demo"
-              [href]="project().liveDemoUrl"
-              class="text-subtle hover:text-blue-700 dark:hover:text-blue-300 flex justify-center items-center gap-2"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="size-5 text-current"
+            <div class="relative group">
+              <a
+                title="Live Demo"
+                [href]="project().liveDemoUrl"
+                class="text-subtle hover:text-blue-700 dark:hover:text-blue-300 flex justify-center items-center gap-2"
               >
-                <path d="M15 3h6v6" />
-                <path d="M10 14 21 3" />
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-              </svg>
-            </a>
-            <!-- Tooltip -->
-            <div
-              class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded-md py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
-            >
-              Open Live Demo
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="size-5 text-current"
+                >
+                  <path d="M15 3h6v6" />
+                  <path d="M10 14 21 3" />
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                </svg>
+              </a>
+              <div
+                class="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs rounded-md py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+              >
+                Open Live Demo
+              </div>
             </div>
-          </div>
           }
         </div>
       </div>
@@ -143,7 +135,7 @@ export class ProjectCard implements AfterViewInit {
           observer.unobserve(this.el.nativeElement);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
     observer.observe(this.el.nativeElement);
   }
