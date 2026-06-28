@@ -1,14 +1,24 @@
 export interface ProjectModel {
-  imageUrl: string;
   title: string;
   description: string;
   githubUrl: string;
-  githubStars?: number;
+  githubStars: number;
   liveDemoUrl: string;
   articleUrl: string;
+  packageUrl: string;
+  downloadCount: number;
   tags: string[];
-  state?: string;
   year: number;
-  downloadCount?: number;
-  packageUrl?: string;
+  createdAt: string;
+}
+
+export interface GithubRepo {
+  name: string;
+  description: string;
+  html_url: string;
+  homepage: string;
+  stargazers_count: number;
+  created_at: string;
+  language: string;
+  topics: string[];
 }

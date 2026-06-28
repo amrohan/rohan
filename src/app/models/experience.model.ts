@@ -8,6 +8,8 @@ export interface ExperienceModel {
   location: string;
   type: 'Full-time' | 'Part-time' | 'Contract' | 'Freelance';
   skills: string[];
+  linkedinUrl?: string;
+  websiteUrl?: string;
   achievements: string[];
   responsibilities: Array<{
     title: string;
