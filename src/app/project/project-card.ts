@@ -1,5 +1,14 @@
-import { AfterViewInit, Component, ElementRef, inject, input, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  input,
+  PLATFORM_ID,
+  signal,
+} from '@angular/core';
 import { ProjectModel } from '../models/project.model';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-project-card',
@@ -123,20 +132,24 @@ import { ProjectModel } from '../models/project.model';
   `,
 })
 export class ProjectCard implements AfterViewInit {
-  project = input.required<ProjectModel>();
-  isVisible = signal(false);
-  el = inject(ElementRef);
+  readonly project = input.required<ProjectModel>();
+  readonly isVisible = signal(false);
+
+  private readonly el = inject(ElementRef);
+  private readonly platformId = inject(PLATFORM_ID);
 
   ngAfterViewInit() {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          this.isVisible.set(true);
-          observer.unobserve(this.el.nativeElement);
-        }
-      },
-      { threshold: 0.1 },
-    );
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        this.isVisible.set(true);
+        observer.disconnect();
+      }
+    });
+
     observer.observe(this.el.nativeElement);
   }
 }

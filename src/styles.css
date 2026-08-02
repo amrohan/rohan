@@ -314,3 +314,46 @@
     filter: blur(70px);
   }
 }
+
+.top-loader {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  width: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+  background: transparent;
+}
+
+.top-loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 35%;
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.45);
+  border-radius: 999px;
+  animation: top-loader 1.2s ease-in-out infinite;
+}
+
+@keyframes top-loader {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(400%);
+  }
+}
+.route-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: calc(var(--progress) * 1%);
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.35);
+  transition: width 250ms ease;
+  z-index: 9999;
+}
