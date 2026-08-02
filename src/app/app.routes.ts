@@ -5,6 +5,7 @@ import { Project } from './project/project';
 import { Experience } from './experience/experience';
 import { Contact } from './contact/contact';
 import { PageNotFound } from './page-not-found/page-not-found';
+import { projectsResolver } from './resolver/projects-resolver';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,9 @@ export const routes: Routes = [
     path: 'project',
     component: Project,
     title: titleResolver,
+    resolve: {
+      projects: projectsResolver,
+    },
   },
   {
     path: 'experience',

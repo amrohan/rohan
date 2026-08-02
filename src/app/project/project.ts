@@ -1,6 +1,5 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { ProjectCard } from './project-card';
-import { GithubService } from '../github';
 import { ProjectModel } from '../models/project.model';
 
 @Component({
@@ -11,17 +10,12 @@ import { ProjectModel } from '../models/project.model';
   styleUrls: ['./project.css'],
 })
 export class Project {
-  private readonly github = inject(GithubService);
-
-  readonly projects = this.github.projects;
+  readonly projects = input.required<ProjectModel[]>();
 
   readonly sortedProjectsByYear = computed(() => {
     const grouped = this.projects().reduce(
       (acc, project) => {
-        const year = project.year;
-
-        (acc[year] ??= []).push(project);
-
+        (acc[project.year] ??= []).push(project);
         return acc;
       },
       {} as Record<number, ProjectModel[]>,
