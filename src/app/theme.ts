@@ -42,6 +42,7 @@ export class ThemeService {
     if (this.isBrowser) {
       localStorage.setItem('theme', theme);
       document.documentElement.classList.toggle('dark', theme === 'dark');
+      document.cookie = `theme=${theme}; Path=/; Max-Age=31536000; SameSite=Lax`;
     }
   }
 
