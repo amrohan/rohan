@@ -41,7 +41,7 @@ import { Component } from '@angular/core';
       <div
         class="absolute -right-4 bottom-12 sm:-right-6 sm:bottom-16 lg:-right-10 lg:bottom-20 bg-background border border-secondary/20 rounded-lg sm:rounded-xl p-2 sm:p-3 lg:p-4 shadow-lg backdrop-blur-sm min-w-[60px] sm:min-w-[70px] lg:min-w-[80px]"
       >
-        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-secondary text-center">2+</div>
+        <div class="text-lg sm:text-xl lg:text-2xl font-bold text-secondary text-center">3+</div>
         <div class="text-xs sm:text-sm text-text/60 text-center whitespace-nowrap">Years Exp.</div>
       </div>
 
@@ -72,4 +72,4 @@ import { Component } from '@angular/core';
     </div>
   `,
 })
-export class Profile {}
+export class Profile { }
